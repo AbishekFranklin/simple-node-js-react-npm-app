@@ -1,24 +1,24 @@
 pipeline {
     agent {label 'master'}
-    tools {nodejs 'N1'}    
+    tools {nodejs 'Node'}    
     environment {
         CI = 'true'
     }
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm build'
+                bat 'npm install'
+                bat 'npm build'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm pack'
+                bat 'npm pack'
             }
         }
         stage('Deliver') {
